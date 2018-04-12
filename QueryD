@@ -21,7 +21,7 @@ declare function functx:add-attributes
 
   } ;
 
-for $c in (doc("songs.xml")/music/song)
+for $c in (doc("songs.xml")/music/element())
 let $r := element {node-name($c)} { for $p in $c/@*
 return (element {name($p)} {data($p)} )
 }
@@ -31,6 +31,14 @@ return xs:QName(node-name($e))
 let $t := (for $e in $c/element()
 return data($e)
 )
+return (if (not(empty($g))) then (
 let $d := functx:add-attributes(
     $r, $g, $t)
 return $d
+    )
+   else
+   (
+ let $d := functx:add-attributes(
+       $r, xs:QName('value'), data($c))
+return $d
+))
