@@ -5,8 +5,11 @@ let $continents := distinct-values(for $continent in $Start/country/encompassed/
 
 for $continent in $continents
 
+
+return ($continent, sum(
+
 (: Get all countries :)
-return ($continent, sum(for $country in $Start/country
+for $country in $Start/country
 
 (: Get all islands which has the attribute called lake :)
 for $island in $Start/island[@lake]
