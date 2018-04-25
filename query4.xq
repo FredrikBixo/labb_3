@@ -16,5 +16,5 @@ return  <order id="{$ccc}" ratio="{$total2 div $total}" />)
 let $mi := min($cc/@ratio)
 let $ma := max($cc/@ratio)
 
-return ($cc[@ratio = $ma], $cc[@ratio = $mi])
+return <root>{($cc[@ratio = $ma], $cc[@ratio = $mi])}</root>
 
