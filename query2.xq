@@ -10,4 +10,4 @@ return $p/name)
 
 let $k := count(doc('mondial.xml')//province)
 
-return ($c div $k)
+return <root>{$c div $k}</root>
