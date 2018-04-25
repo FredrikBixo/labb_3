@@ -13,10 +13,10 @@ return $org)
 
 let $data := for $foo in $organisation
 let $test := (for $zoo in $europecountry
-where matches($foo/members[1]/@country,$zoo)
+where matches($foo/members[./@type ="member"]/@country,$zoo)
 return 1)
 return <data><number>{sum($test)}</number>{$foo/name}</data>
 
 let $max := max(data($data/number))
 
-for $doo in $data where data($doo/number) = data($max) return $doo/name
+return <root>{for $doo in $data where data($doo/number) = data($max) return $doo/name}</root>
