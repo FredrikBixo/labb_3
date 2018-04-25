@@ -48,4 +48,4 @@ let $final := for $country in doc('mondial.xml')/mondial/country
 return local:longest($country)
 
   let $ma := max($final/@crossingNumber)
-  return $final[@crossingNumber = $ma]
+  return <root>{$final[@crossingNumber = $ma]}</root>
