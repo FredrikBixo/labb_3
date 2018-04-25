@@ -34,4 +34,4 @@ return  <Values>{$line1/name[1]}{$line3/name}<distance>{data($line1/distance)+da
 
 
 (:Return names of the three cities that form the largest triangle between them:)  
-return $tripple[./distance= max($tripple/distance)]
+return <root>{$tripple[./distance= max($tripple/distance)]}</root>
