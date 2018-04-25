@@ -15,11 +15,7 @@ declare function functx:add-attributes
                     $element/node() }
  } ;
 
- declare function local:switch ( $elements as element()* )  as element()?  {
 
-
-
-  } ;
 
 (: loop through all elements :)
 for $c in (doc("songs.xml")/music/element())
