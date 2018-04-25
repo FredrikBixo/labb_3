@@ -37,6 +37,6 @@ declare function local:tag($stuff,$currentCrossing) {
 
 let $StartCountry := local:tag(doc('mondial.xml')//country[@car_code = 'S'],0)
 
-for $a in local:dfs($StartCountry,$StartCountry)
+return <root>{for $a in local:dfs($StartCountry,$StartCountry)
 
-return <Value crossingNumber="{$a/@crossingNumber}">{$a/name} </Value>
+return <Value crossingNumber="{$a/@crossingNumber}">{$a/name} </Value>}</root>
