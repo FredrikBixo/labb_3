@@ -21,16 +21,23 @@ declare function functx:add-attributes
 
   } ;
 
+(: loop through all elements :)
 for $c in (doc("songs.xml")/music/element())
+(: reverse the attributes to elements :)
 let $r := element {node-name($c)} { for $p in $c/@*
 return (element {name($p)} {data($p)} )
 }
+
+(: create a nodeName for each element :)
 let $g := (for $e in $c/element()
 return xs:QName(node-name($e))
 )
+(: return value for each element :)
 let $t := (for $e in $c/element()
 return data($e)
 )
+
+(: add elements as attributes :)
 return (if (not(empty($g))) then (
 let $d := functx:add-attributes(
     $r, $g, $t)
