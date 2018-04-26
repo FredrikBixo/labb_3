@@ -14,6 +14,7 @@ let $total2 := sum($populationIn50)
 order by $total2 div $total
 return  <order id="{$ccc}" ratio="{$total2 div $total}" />)
 
+(: select min max ratio :)
 let $mi := min($cc/@ratio)
 let $ma := max($cc/@ratio)
 
