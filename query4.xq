@@ -1,3 +1,4 @@
+(: $cc = ratios :)
 let $cc := (for $c in doc('mondial.xml')//country
 let $growthIn50 := math:pow(($c/population_growth/number() div 100) + 1, 50)
 let $continent := $c/encompassed/@continent
